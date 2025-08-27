@@ -12,191 +12,382 @@
   <meta property="og:url" content="https://www.androforge.online/" />
   <meta property="og:image" content="https://www.androforge.online/assets/og-image.jpg" />
   <link rel="icon" href="/assets/favicon.png" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#fef9ec',
+              100: '#fceeca',
+              200: '#f8da90',
+              300: '#f4c257',
+              400: '#f1a82c',
+              500: '#eb8614',
+              600: '#d06310',
+              700: '#ad4510',
+              800: '#8d3614',
+              900: '#732e14',
+            },
+            secondary: {
+              50: '#f5f7f8',
+              100: '#dfe6e9',
+              200: '#bdcbd2',
+              300: '#93a7b3',
+              400: '#6c8594',
+              500: '#516a7a',
+              600: '#405261',
+              700: '#374551',
+              800: '#303b46',
+              900: '#2c343c',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .gradient-bg {
+      background: linear-gradient(135deg, #f8da90 0%, #f4c257 50%, #eb8614 100%);
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, rgba(253, 230, 138, 0.4) 0%, rgba(251, 191, 36, 0.4) 50%, rgba(234, 88, 12, 0.4) 100%);
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="bg-gray-50 text-secondary-900 font-sans">
   <!-- Nav -->
-  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b">
+  <header class="sticky top-0 z-30 bg-white/90 backdrop-blur border-b shadow-sm">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="#" class="flex items-center gap-2">
-        <img src="/assets/logo.svg" alt="AndroForge" class="h-7 w-7" />
-        <span class="font-semibold">AndroForge</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-primary-600" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+        <span class="font-bold text-xl bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">AndroForge</span>
       </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="#features" class="hover:opacity-70">Özellikler</a>
-        <a href="#pricing" class="hover:opacity-70">Paketler</a>
-        <a href="#screenshots" class="hover:opacity-70">Ekran Görüntüleri</a>
-        <a href="#faq" class="hover:opacity-70">SSS</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="#features" class="hover:text-primary-600 transition-colors">Özellikler</a>
+        <a href="#pricing" class="hover:text-primary-600 transition-colors">Paketler</a>
+        <a href="#screenshots" class="hover:text-primary-600 transition-colors">Ekran Görüntüleri</a>
+        <a href="#faq" class="hover:text-primary-600 transition-colors">SSS</a>
       </nav>
       <div class="flex items-center gap-2">
-        <a href="#contact" class="px-4 py-2 rounded-2xl bg-black text-white text-sm font-medium hover:opacity-90">Demo Talep Et</a>
+        <a href="#contact" class="px-4 py-2 rounded-xl gradient-bg text-white text-sm font-semibold hover:shadow-md transition-shadow">Demo Talep Et</a>
       </div>
     </div>
-  </header>  <!-- Hero -->  <section class="relative overflow-hidden">
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden hero-gradient">
     <div class="max-w-6xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
       <div>
-        <h1 class="text-3xl md:text-5xl font-bold leading-tight">Gelişmiş <span class="bg-yellow-200 px-2 rounded">Forex & Borsa</span> Scalping Botu</h1>
-        <p class="mt-4 text-lg text-gray-600">Otomatik trading, Telegram paneli, risk yönetimi ve backtest desteği ile hızlı piyasa hareketlerinden maksimum verim alın.</p>
-        <ul class="mt-6 space-y-2 text-gray-700">
-          <li>• Çoklu indikatör sinyalleri (RSI, MACD, EMA)</li>
-          <li>• Düşük gecikmeli yüksek hızlı emir yürütme</li>
-          <li>• Gelişmiş risk yönetimi (SL/TP, dinamik lot)</li>
-          <li>• Backtest & forward test</li>
+        <h1 class="text-3xl md:text-5xl font-bold leading-tight">Gelişmiş <span class="text-primary-600">Forex & Borsa</span> Scalping Botu</h1>
+        <p class="mt-4 text-lg text-secondary-600">Otomatik trading, Telegram paneli, risk yönetimi ve backtest desteği ile hızlı piyasa hareketlerinden maksimum verim alın.</p>
+        <ul class="mt-6 space-y-2 text-secondary-700">
+          <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Çoklu indikatör sinyalleri (RSI, MACD, EMA)</li>
+          <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Düşük gecikmeli yüksek hızlı emir yürütme</li>
+          <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Gelişmiş risk yönetimi (SL/TP, dinamik lot)</li>
+          <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Backtest & forward test</li>
         </ul>
         <div class="mt-8 flex gap-3">
-          <a href="#pricing" class="px-5 py-3 rounded-2xl bg-black text-white font-medium hover:opacity-90">Paketleri Gör</a>
-          <a href="#features" class="px-5 py-3 rounded-2xl bg-white border font-medium hover:bg-gray-50">Özelliklere Bak</a>
+          <a href="#pricing" class="px-5 py-3 rounded-xl gradient-bg text-white font-semibold hover:shadow-md transition-shadow">Paketleri Gör</a>
+          <a href="#features" class="px-5 py-3 rounded-xl bg-white border font-semibold text-secondary-700 hover:bg-gray-50 transition-colors">Özelliklere Bak</a>
         </div>
       </div>
-      <div class="relative">
-        <div class="rounded-2xl border bg-white shadow-lg overflow-hidden">
+      <div class="relative animate-float">
+        <div class="rounded-2xl border-4 border-white shadow-xl overflow-hidden">
           <img src="/assets/screenshot-telegram-panel.png" alt="Telegram Panel" class="w-full">
         </div>
       </div>
     </div>
-  </section>  <!-- Trust / Badges -->  <section class="py-8">
-    <div class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-sm text-gray-500">
-      <div class="p-4 rounded-xl bg-white border">MT4/MT5 Uyumlu</div>
-      <div class="p-4 rounded-xl bg-white border">Python Tabanlı</div>
-      <div class="p-4 rounded-xl bg-white border">Telegram Kontrollü</div>
-      <div class="p-4 rounded-xl bg-white border">VPS Kurulum Desteği</div>
+  </section>
+
+  <!-- Trust / Badges -->
+  <section class="py-12">
+    <div class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+      <div class="p-4 rounded-xl bg-white border shadow-sm flex flex-col items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary-600 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+        <span class="text-sm font-medium">MT4/MT5 Uyumlu</span>
+      </div>
+      <div class="p-4 rounded-xl bg-white border shadow-sm flex flex-col items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary-600 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+        <span class="text-sm font-medium">Python Tabanlı</span>
+      </div>
+      <div class="p-4 rounded-xl bg-white border shadow-sm flex flex-col items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary-600 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+        </svg>
+        <span class="text-sm font-medium">Telegram Kontrollü</span>
+      </div>
+      <div class="p-4 rounded-xl bg-white border shadow-sm flex flex-col items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary-600 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-4m-4 0H9m4 0V9a2 2 0 00-2-2H5a2 2 0 00-2 2v10m4 0h4m-4 0V7" />
+        </svg>
+        <span class="text-sm font-medium">VPS Kurulum Desteği</span>
+      </div>
     </div>
-  </section>  <!-- Features -->  <section id="features" class="py-16 bg-white border-t">
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="py-16 bg-white">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold">Özellikler</h2>
-      <p class="text-gray-600 mt-2">Scalping ve kısa vadeli stratejiler için optimize edildi.</p>
-      <div class="grid md:grid-cols-3 gap-6 mt-8">
-        <div class="p-6 rounded-2xl border">
-          <h3 class="font-semibold">Çoklu İndikatör Sinyalleri</h3>
-          <p class="text-gray-600 mt-2 text-sm">RSI, MACD, EMA kombinasyonlarıyla filtreli sinyaller. Özelleştirilebilir eşikler ve zaman aralıkları.</p>
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold">Özellikler</h2>
+        <p class="text-secondary-600 mt-2 max-w-2xl mx-auto">Scalping ve kısa vadeli stratejiler için optimize edilmiş gelişmiş özellikler</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl border hover:shadow-md transition-shadow group">
+          <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center text-white mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg group-hover:text-primary-600 transition-colors">Çoklu İndikatör Sinyalleri</h3>
+          <p class="text-secondary-600 mt-2 text-sm">RSI, MACD, EMA kombinasyonlarıyla filtreli sinyaller. Özelleştirilebilir eşikler ve zaman aralıkları.</p>
         </div>
-        <div class="p-6 rounded-2xl border">
-          <h3 class="font-semibold">Hızlı Emir Yürütme</h3>
-          <p class="text-gray-600 mt-2 text-sm">Düşük gecikme odaklı mimari. Likidite sağlayıcılarına yakın VPS önerisi (Londra/Frankfurt).</p>
+        <div class="p-6 rounded-2xl border hover:shadow-md transition-shadow group">
+          <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center text-white mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg group-hover:text-primary-600 transition-colors">Hızlı Emir Yürütme</h3>
+          <p class="text-secondary-600 mt-2 text-sm">Düşük gecikme odaklı mimari. Likidite sağlayıcılarına yakın VPS önerisi (Londra/Frankfurt).</p>
         </div>
-        <div class="p-6 rounded-2xl border">
-          <h3 class="font-semibold">Risk Yönetimi</h3>
-          <p class="text-gray-600 mt-2 text-sm">Stop-Loss, Take-Profit, dinamik lot hesaplama, günlük max kayıp/kar limitleri.</p>
+        <div class="p-6 rounded-2xl border hover:shadow-md transition-shadow group">
+          <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center text-white mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg group-hover:text-primary-600 transition-colors">Risk Yönetimi</h3>
+          <p class="text-secondary-600 mt-2 text-sm">Stop-Loss, Take-Profit, dinamik lot hesaplama, günlük max kayıp/kar limitleri.</p>
         </div>
-        <div class="p-6 rounded-2xl border">
-          <h3 class="font-semibold">Backtest & Forward Test</h3>
-          <p class="text-gray-600 mt-2 text-sm">Geçmiş veriyle performans testi ve demo hesapta canlı izleme.</p>
+        <div class="p-6 rounded-2xl border hover:shadow-md transition-shadow group">
+          <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center text-white mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg group-hover:text-primary-600 transition-colors">Backtest & Forward Test</h3>
+          <p class="text-secondary-600 mt-2 text-sm">Geçmiş veriyle performans testi ve demo hesapta canlı izleme.</p>
         </div>
-        <div class="p-6 rounded-2xl border">
-          <h3 class="font-semibold">Telegram Panel</h3>
-          <p class="text-gray-600 mt-2 text-sm">/otomatik, /alarm, /risk, /portföy, /performans, /grafik gibi komutlarla kolay kontrol.</p>
+        <div class="p-6 rounded-2xl border hover:shadow-md transition-shadow group">
+          <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center text-white mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg group-hover:text-primary-600 transition-colors">Telegram Panel</h3>
+          <p class="text-secondary-600 mt-2 text-sm">/otomatik, /alarm, /risk, /portföy, /performans, /grafik gibi komutlarla kolay kontrol.</p>
         </div>
-        <div class="p-6 rounded-2xl border">
-          <h3 class="font-semibold">Özelleştirilebilir</h3>
-          <p class="text-gray-600 mt-2 text-sm">Strateji kuralları, risk parametreleri ve işlem saatleri müşteriye göre ayarlanır.</p>
+        <div class="p-6 rounded-2xl border hover:shadow-md transition-shadow group">
+          <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center text-white mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg group-hover:text-primary-600 transition-colors">Özelleştirilebilir</h3>
+          <p class="text-secondary-600 mt-2 text-sm">Strateji kuralları, risk parametreleri ve işlem saatleri müşteriye göre ayarlanır.</p>
         </div>
       </div>
     </div>
-  </section>  <!-- Pricing -->  <section id="pricing" class="py-16">
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-16 bg-gray-50">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold">Paketler</h2>
-      <p class="text-gray-600 mt-2">İhtiyacınıza göre seçin. Kurulum ve destek seçenekleri mevcuttur.</p>
-      <div class="grid md:grid-cols-3 gap-6 mt-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold">Paketler</h2>
+        <p class="text-secondary-600 mt-2">İhtiyacınıza göre seçin. Kurulum ve destek seçenekleri mevcuttur.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
         <!-- Basic -->
-        <div class="p-6 rounded-2xl border bg-white">
-          <h3 class="font-semibold text-lg">Basic</h3>
-          <p class="text-3xl font-bold mt-2">$199</p>
-          <ul class="mt-4 text-sm text-gray-700 space-y-2">
-            <li>• Sinyal + Alarm botu</li>
-            <li>• Temel Telegram entegrasyonu</li>
-            <li>• Kurulum dokümantasyonu</li>
+        <div class="p-8 rounded-2xl border bg-white shadow-sm hover:shadow-md transition-shadow">
+          <h3 class="font-semibold text-lg text-center">Basic</h3>
+          <div class="mt-4 text-center">
+            <span class="text-4xl font-bold text-primary-600">$199</span>
+          </div>
+          <ul class="mt-6 space-y-3">
+            <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Sinyal + Alarm botu</li>
+            <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Temel Telegram entegrasyonu</li>
+            <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Kurulum dokümantasyonu</li>
           </ul>
-          <a href="#contact" class="mt-6 inline-block w-full text-center px-4 py-2 rounded-xl border font-medium hover:bg-gray-50">Teklif Al</a>
+          <a href="#contact" class="mt-8 inline-block w-full text-center px-4 py-3 rounded-xl border font-medium hover:bg-gray-50 transition-colors">Teklif Al</a>
         </div>
         <!-- Standard -->
-        <div class="p-6 rounded-2xl border bg-white shadow-sm">
-          <h3 class="font-semibold text-lg">Standard</h3>
-          <p class="text-3xl font-bold mt-2">$399</p>
-          <ul class="mt-4 text-sm text-gray-700 space-y-2">
-            <li>• Otomatik trading</li>
-            <li>• Risk yönetimi (SL/TP, lot)</li>
-            <li>• Portföy & performans raporu</li>
+        <div class="p-8 rounded-2xl border-2 border-primary-400 bg-white shadow-lg relative">
+          <div class="absolute top-0 right-0 gradient-bg text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-xl">POPÜLER</div>
+          <h3 class="font-semibold text-lg text-center">Standard</h3>
+          <div class="mt-4 text-center">
+            <span class="text-4xl font-bold text-primary-600">$399</span>
+          </div>
+          <ul class="mt-6 space-y-3">
+            <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Otomatik trading</li>
+            <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Risk yönetimi (SL/TP, lot)</li>
+            <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Portföy & performans raporu</li>
           </ul>
-          <a href="#contact" class="mt-6 inline-block w-full text-center px-4 py-2 rounded-xl bg-black text-white font-medium hover:opacity-90">Teklif Al</a>
+          <a href="#contact" class="mt-8 inline-block w-full text-center px-4 py-3 rounded-xl gradient-bg text-white font-medium hover:shadow-md transition-shadow">Teklif Al</a>
         </div>
         <!-- Premium -->
-        <div class="p-6 rounded-2xl border bg-white">
-          <h3 class="font-semibold text-lg">Premium</h3>
-          <p class="text-3xl font-bold mt-2">$799</p>
-          <ul class="mt-4 text-sm text-gray-700 space-y-2">
-            <li>• Tüm özellikler</li>
-            <li>• Backtest & forward test</li>
-            <li>• VPS kurulumu + strateji uyarlama</li>
+        <div class="p-8 rounded-2xl border bg-white shadow-sm hover:shadow-md transition-shadow">
+          <h3 class="font-semibold text-lg text-center">Premium</h3>
+          <div class="mt-4 text-center">
+            <span class="text-4xl font-bold text-primary-600">$799</span>
+          </div>
+          <ul class="mt-6 space-y-3">
+            <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Tüm özellikler</li>
+            <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Backtest & forward test</li>
+            <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> VPS kurulumu + strateji uyarlama</li>
           </ul>
-          <a href="#contact" class="mt-6 inline-block w-full text-center px-4 py-2 rounded-xl border font-medium hover:bg-gray-50">Teklif Al</a>
+          <a href="#contact" class="mt-8 inline-block w-full text-center px-4 py-3 rounded-xl border font-medium hover:bg-gray-50 transition-colors">Teklif Al</a>
         </div>
       </div>
-      <p class="text-xs text-gray-500 mt-3">* Fiyatlar örnektir; ihtiyaca göre özelleştirilebilir.</p>
+      <p class="text-xs text-secondary-500 mt-6 text-center">* Fiyatlar örnektir; ihtiyaca göre özelleştirilebilir.</p>
     </div>
-  </section>  <!-- Screenshots -->  <section id="screenshots" class="py-16 bg-white border-t">
+  </section>
+
+  <!-- Screenshots -->
+  <section id="screenshots" class="py-16 bg-white">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold">Ekran Görüntüleri</h2>
-      <p class="text-gray-600 mt-2">Telegram panel ve rapor örnekleri.</p>
-      <div class="grid md:grid-cols-3 gap-6 mt-8">
-        <img src="/assets/screenshot-1.png" alt="Screenshot 1" class="rounded-xl border bg-white" />
-        <img src="/assets/screenshot-2.png" alt="Screenshot 2" class="rounded-xl border bg-white" />
-        <img src="/assets/screenshot-3.png" alt="Screenshot 3" class="rounded-xl border bg-white" />
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold">Ekran Görüntüleri</h2>
+        <p class="text-secondary-600 mt-2">Telegram panel ve rapor örnekleri.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="rounded-2xl border overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+          <img src="/assets/screenshot-1.png" alt="Screenshot 1" class="w-full" />
+        </div>
+        <div class="rounded-2xl border overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+          <img src="/assets/screenshot-2.png" alt="Screenshot 2" class="w-full" />
+        </div>
+        <div class="rounded-2xl border overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+          <img src="/assets/screenshot-3.png" alt="Screenshot 3" class="w-full" />
+        </div>
       </div>
     </div>
-  </section>  <!-- FAQ -->  <section id="faq" class="py-16">
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-16 bg-gray-50">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold">Sık Sorulan Sorular</h2>
-      <div class="mt-8 grid md:grid-cols-2 gap-6">
-        <div class="p-6 rounded-2xl border bg-white">
-          <h3 class="font-semibold">Sunucu gerekiyor mu?</h3>
-          <p class="text-gray-600 mt-2 text-sm">7/24 çalışma için VPS önerilir (Londra/Frankfurt). İsterseniz kurulum hizmeti veriyoruz.</p>
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold">Sık Sorulan Sorular</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="p-6 rounded-2xl border bg-white hover:shadow-md transition-shadow">
+          <h3 class="font-semibold text-lg flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 mr-2" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+            </svg>
+            Sunucu gerekiyor mu?
+          </h3>
+          <p class="text-secondary-600 mt-2">7/24 çalışma için VPS önerilir (Londra/Frankfurt). İsterseniz kurulum hizmeti veriyoruz.</p>
         </div>
-        <div class="p-6 rounded-2xl border bg-white">
-          <h3 class="font-semibold">Hangi platformlar destekleniyor?</h3>
-          <p class="text-gray-600 mt-2 text-sm">MT4/MT5, Python API ve Telegram bot entegrasyonu mevcuttur.</p>
+        <div class="p-6 rounded-2xl border bg-white hover:shadow-md transition-shadow">
+          <h3 class="font-semibold text-lg flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 mr-2" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+            </svg>
+            Hangi platformlar destekleniyor?
+          </h3>
+          <p class="text-secondary-600 mt-2">MT4/MT5, Python API ve Telegram bot entegrasyonu mevcuttur.</p>
         </div>
-        <div class="p-6 rounded-2xl border bg-white">
-          <h3 class="font-semibold">Backtest sağlanıyor mu?</h3>
-          <p class="text-gray-600 mt-2 text-sm">Evet, geçmiş veri ile backtest ve demo hesapta forward test seçenekleri mevcut.</p>
+        <div class="p-6 rounded-2xl border bg-white hover:shadow-md transition-shadow">
+          <h3 class="font-semibold text-lg flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 mr-2" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+            </svg>
+            Backtest sağlanıyor mu?
+          </h3>
+          <p class="text-secondary-600 mt-2">Evet, geçmiş veri ile backtest ve demo hesapta forward test seçenekleri mevcut.</p>
         </div>
-        <div class="p-6 rounded-2xl border bg-white">
-          <h3 class="font-semibold">Ödeme ve iade politikası?</h3>
-          <p class="text-gray-600 mt-2 text-sm">Özelleştirme seviyesine bağlı. Başlangıç depozitosu sonrası teslim adımlarına göre ilerlenir.</p>
+        <div class="p-6 rounded-2xl border bg-white hover:shadow-md transition-shadow">
+          <h3 class="font-semibold text-lg flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-600 mr-2" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+            </svg>
+            Ödeme ve iade politikası?
+          </h3>
+          <p class="text-secondary-600 mt-2">Özelleştirme seviyesine bağlı. Başlangıç depozitosu sonrası teslim adımlarına göre ilerlenir.</p>
         </div>
       </div>
     </div>
-  </section>  <!-- Contact -->  <section id="contact" class="py-16 bg-black text-white">
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16 bg-secondary-900 text-white">
     <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
       <div>
         <h2 class="text-2xl md:text-3xl font-bold">Demo Talep Edin</h2>
         <p class="text-white/80 mt-2">Kısa bir mesaj bırakın, ihtiyacınızı değerlendirelim ve en uygun paketi önereyim.</p>
-        <ul class="mt-4 text-white/80 text-sm space-y-2">
-          <li>• Telegram: <a class="underline" href="https://t.me/AndroForge">@YOUR_TELEGRAM</a></li>
-          <li>• E-posta: <a class="underline" href="mailto:arasmelih35@gmail.com">hello@androforge.online</a></li>
+        <ul class="mt-6 text-white/80 space-y-3">
+          <li class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+            </svg>
+            Telegram: <a class="underline ml-1" href="https://t.me/AndroForgeSupport" target="_blank">@AndroForgeSupport</a>
+          </li>
+          <li class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+            </svg>
+            E-posta: <a class="underline ml-1" href="mailto:arasmelih35@gmail.com">arasmelih35@gmail.com</a>
+          </li>
         </ul>
       </div>
-      <form class="bg-white text-gray-900 p-6 rounded-2xl" name="contact" netlify>
+      <form class="bg-white text-secondary-900 p-6 rounded-2xl shadow-md" name="contact" netlify>
         <input type="hidden" name="form-name" value="contact" />
         <label class="block text-sm font-medium">Adınız</label>
-        <input name="name" required class="mt-1 w-full rounded-xl border p-2" />
+        <input name="name" required class="mt-1 w-full rounded-xl border p-3 focus:ring-2 focus:ring-primary-400 focus:border-transparent" />
         <label class="block text-sm font-medium mt-4">E-posta</label>
-        <input name="email" type="email" required class="mt-1 w-full rounded-xl border p-2" />
+        <input name="email" type="email" required class="mt-1 w-full rounded-xl border p-3 focus:ring-2 focus:ring-primary-400 focus:border-transparent" />
         <label class="block text-sm font-medium mt-4">Mesaj</label>
-        <textarea name="message" rows="4" required class="mt-1 w-full rounded-xl border p-2"></textarea>
-        <button class="mt-4 w-full px-4 py-2 rounded-xl bg-black text-white font-medium">Gönder</button>
-        <p class="text-xs text-gray-500 mt-2">Kişisel verileriniz sadece iletişim amacıyla kullanılacaktır.</p>
+        <textarea name="message" rows="4" required class="mt-1 w-full rounded-xl border p-3 focus:ring-2 focus:ring-primary-400 focus:border-transparent"></textarea>
+        <button class="mt-6 w-full px-4 py-3 rounded-xl gradient-bg text-white font-semibold hover:shadow-md transition-shadow">Gönder</button>
+        <p class="text-xs text-secondary-500 mt-3">Kişisel verileriniz sadece iletişim amacıyla kullanılacaktır.</p>
       </form>
     </div>
-  </section>  <!-- Footer -->  <footer class="py-10">
-    <div class="max-w-6xl mx-auto px-4 text-sm text-gray-600 flex flex-col md:flex-row items-center justify-between gap-4">
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 bg-secondary-800 text-white">
+    <div class="max-w-6xl mx-auto px-4 text-sm flex flex-col md:flex-row items-center justify-between gap-4">
       <p>© <span id="year"></span> AndroForge. Tüm hakları saklıdır.</p>
       <div class="flex items-center gap-4">
-        <a href="/privacy.html" class="hover:opacity-70">Gizlilik</a>
-        <a href="/terms.html" class="hover:opacity-70">Şartlar</a>
+        <a href="/privacy.html" class="hover:text-primary-400 transition-colors">Gizlilik</a>
+        <a href="/terms.html" class="hover:text-primary-400 transition-colors">Şartlar</a>
       </div>
     </div>
-  </footer>  <script>
+  </footer>
+
+  <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-  </script></body>
-          </html>
+  </script>
+</body>
+</html>
