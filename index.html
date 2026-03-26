@@ -1,187 +1,195 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Son dakika infaz düzenlemesi, meclis gündemi, af yasası ve Türkiye gündemindeki önemli haberler.">
-    <meta name="keywords" content="infaz düzenlemesi, af yasası, son dakika, meclis, haber">
-    <meta name="author" content="AndroForge News">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>İstanbul Avrupa Yakası Acil Elektrikçi | 7/24 Hizmet</title>
 
-    <title>İnfaz Düzenlemesi Haberleri – Son Dakika</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-        }
+<style>
+/* Genel Ayarlar */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: #0f172a;
+    color: #ffffff;
+    scroll-behavior: smooth;
+}
+a { text-decoration: none; }
 
-        /* Tema renkleri */
-        :root {
-            --bg: #f5f5f5;
-            --text: #1a1a1a;
-            --card-bg: white;
-        }
+/* Header */
+header {
+    background: linear-gradient(90deg, #f97316, #ea580c);
+    padding: 25px 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
 
-        .dark {
-            --bg: #121212;
-            --text: #eaeaea;
-            --card-bg: #1f1f1f;
-        }
+/* Container */
+.container {
+    padding: 25px 20px;
+    text-align: center;
+}
 
-        header {
-            background: #1a1a1a;
-            color: white;
-            padding: 15px 20px;
-            font-size: 22px;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+/* Başlık & Açıklama */
+h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    animation: fadeInDown 1s ease;
+}
+p {
+    font-size: 17px;
+    opacity: 0.9;
+    margin-bottom: 20px;
+    animation: fadeIn 1.2s ease;
+}
 
-        nav {
-            background: #333;
-            padding: 10px;
-            text-align: center;
-        }
+/* Animasyonlar */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+@keyframes fadeIn {
+    from {opacity:0;}
+    to {opacity:1;}
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 12px;
-            font-size: 16px;
-        }
+/* Butonlar */
+.btn {
+    display: inline-block;
+    margin: 15px 10px;
+    padding: 16px 25px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+.call {
+    background: #22c55e;
+    color: white;
+}
+.call:hover { background: #16a34a; transform: scale(1.05);}
+.whatsapp {
+    background: #25D366;
+    color: white;
+}
+.whatsapp:hover { background: #128C7E; transform: scale(1.05);}
 
-        .theme-toggle {
-            padding: 8px 12px;
-            background: #444;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
+/* Hizmet Kartları */
+.services {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+.card {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 15px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    color: white;
+}
 
-        .breaking {
-            background: #e00000;
-            color: white;
-            padding: 12px;
-            font-size: 18px;
-            font-weight: bold;
-            text-align: center;
-        }
+/* İlçeler */
+.districts {
+    margin-top: 35px;
+}
+.districts h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+.district-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+}
+.district {
+    background: #1e293b;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    text-align: center;
+    transition: transform 0.2s, background 0.3s;
+}
+.district:hover {
+    transform: scale(1.05);
+    background: #f97316;
+}
 
-        .container {
-            padding: 15px;
-            max-width: 900px;
-            margin: auto;
-        }
-
-        .card {
-            background: var(--card-bg);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 18px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .card img {
-            width: 100%;
-            border-radius: 8px;
-        }
-
-        .card h2 {
-            margin-top: 12px;
-            font-size: 22px;
-        }
-
-        a.read {
-            text-decoration: none;
-            font-weight: bold;
-            color: #0072ff;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 30px;
-            background: #1a1a1a;
-            color: #bbb;
-        }
-
-        .ad-box {
-            background: #ddd;
-            padding: 20px;
-            text-align: center;
-            border-radius: 6px;
-            margin: 20px 0;
-            font-size: 14px;
-        }
-    </style>
-
-    <script>
-        function toggleTheme() {
-            document.body.classList.toggle('dark');
-        }
-    </script>
-
+/* Footer */
+.footer {
+    margin-top: 40px;
+    padding: 20px;
+    background: #020617;
+    font-size: 14px;
+    text-align: center;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <div>AndroForge Haber</div>
-    <button class="theme-toggle" onclick="toggleTheme()">🌙 / ☀️</button>
+⚡ ACİL ELEKTRİKÇİ İSTANBUL (AVRUPA YAKASI)
 </header>
-
-<nav>
-    <a href="#">Ana Sayfa</a>
-    <a href="#">İnfaz Düzenlemesi</a>
-    <a href="#">Meclis</a>
-    <a href="#">Gündem</a>
-    <a href="#">Ekonomi</a>
-</nav>
-
-<div class="breaking">SON DAKİKA: Mecliste infaz düzenlemesi görüşülüyor – Yeni maddeler ortaya çıktı!</div>
 
 <div class="container">
 
-    <div class="ad-box">🔸 Reklam Alanı (Google AdSense kodu buraya gelecek)</div>
+<h1>7/24 Elektrik Arıza Hizmeti</h1>
+<p>İstanbul Avrupa Yakası genelinde hızlı, güvenilir ve garantili elektrikçi hizmeti veriyoruz.</p>
 
-    <div class="card">
-        <img src="https://images.pexels.com/photos/159832/law-justice-legal-judgement-159832.jpeg" />
-        <h2>Yeni İnfaz Düzenlemesinin Detayları Açıklandı</h2>
-        <p>
-            Mecliste görüşülen yeni infaz düzenlemesiyle ilgili birçok madde kamuoyuna açıklandı.
-            Koşullu salıverilme süresi ve iyi hâl indirimi yeniden düzenleniyor.
-        </p>
-        <a class="read" href="haber.html">➜ Haberin devamını oku</a>
-    </div>
+<a href="tel:905015316367" class="btn call">📞 HEMEN ARA</a>
+<a href="https://wa.me/905015316367" class="btn whatsapp">💬 WHATSAPP</a>
 
-    <div class="card">
-        <h2>Uzmanlardan Af Yorumları</h2>
-        <p>
-            Düzenlemenin af niteliğinde olup olmadığına dair uzman görüşleri.
-        </p>
-        <a class="read" href="haber.html">➜ Devamını oku</a>
-    </div>
+<div class="services">
+    <div class="card">⚡ Elektrik Arıza</div>
+    <div class="card">🔌 Priz Tamiri</div>
+    <div class="card">💡 Avize Montajı</div>
+    <div class="card">⚙️ Sigorta Değişimi</div>
+</div>
 
-    <div class="ad-box">🔸 Reklam Alanı</div>
-
-    <div class="card">
-        <h2>Mecliste Takvim Netleşti</h2>
-        <p>
-            Yeni yasa tasarısının tüm maddeleri bu hafta içinde genel kurulda görüşülüyor.
-        </p>
-        <a class="read" href="haber.html">➜ Haber Detayı</a>
-    </div>
+<div class="districts">
+<h2>Hizmet Verdiğimiz İlçeler</h2>
+<div class="district-list">
+<div class="district">Avcılar</div>
+<div class="district">Bağcılar</div>
+<div class="district">Bahçelievler</div>
+<div class="district">Bakırköy</div>
+<div class="district">Başakşehir</div>
+<div class="district">Bayrampaşa</div>
+<div class="district">Beşiktaş</div>
+<div class="district">Beylikdüzü</div>
+<div class="district">Beyoğlu</div>
+<div class="district">Büyükçekmece</div>
+<div class="district">Çatalca</div>
+<div class="district">Esenler</div>
+<div class="district">Esenyurt</div>
+<div class="district">Eyüpsultan</div>
+<div class="district">Fatih</div>
+<div class="district">Gaziosmanpaşa</div>
+<div class="district">Güngören</div>
+<div class="district">Kağıthane</div>
+<div class="district">Küçükçekmece</div>
+<div class="district">Sarıyer</div>
+<div class="district">Silivri</div>
+<div class="district">Şişli</div>
+<div class="district">Zeytinburnu</div>
+</div>
+</div>
 
 </div>
 
-<footer>
-    © 2025 AndroForge Haber – Tüm Hakları Saklıdır.
-</footer>
+<div class="footer">
+İstanbul Avrupa Yakası Elektrikçi (Ömer Usta) | 7/24 Acil Elektrik Hizmeti
+</div>
 
 </body>
 </html>
